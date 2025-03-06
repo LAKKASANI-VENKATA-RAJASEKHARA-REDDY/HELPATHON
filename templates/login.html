@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HELP.com</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{url_for('home')}}" style="cursor: pointer; text-decoration: none; color: inherit;"><h1>HELP.com</h1></a>
+    </header>
+
+    <section class="login-form">
+        <h2 style="margin-top: 10px;">Login</h2>
+        <form action="{{ url_for('login') }}" method="post" class="login_form">
+            <label for="aadhar_number">Aadhar Number:</label>
+            <input type="text" id="aadhar_number" name="aadhar_number" required>
+        
+            <label for="mobile_number">Mobile Number:</label>
+            <input type="text" id="mobile_number" name="mobile_number" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        
+            <button type="submit">Login</button>
+        </form>
+        
+    </section>
+    <p style="margin-left: 70px;">Don't have an account?<a href="{{ url_for('register') }}"> Register Here</a></p>
+
+    <footer>
+        <p>&copy; 2025 HELP.com | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

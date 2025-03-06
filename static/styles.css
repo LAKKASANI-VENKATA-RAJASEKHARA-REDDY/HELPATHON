@@ -1,0 +1,403 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000; /* Black header */
+  color: white;
+  padding: 7px 7px;
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  font-weight: bold;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 7px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.dashboard-content {
+  text-align: center;
+  max-width: 700px;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: 100px; /* Pushes content down to avoid header overlap */
+}
+
+/* Centered Welcome Text */
+h1 {
+  text-align: center;
+  margin-left: 50px; /* Moves text slightly to the right */
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  margin: 10px;
+}
+
+.btn-oh{
+  display: inline-block;
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  margin: 10px;
+  width: 100px;
+}
+
+.btn-oh:hover{
+  background: #444;
+  transform: scale(1.05);
+}
+
+.btn:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* Align Not Allowed button and delete icon properly */
+.action-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Reduce spacing between elements */
+}
+
+
+
+/* Remove form styling */
+.delete-form {
+  display: inline; /* Ensures it doesn't affect layout */
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+}
+
+.delete-form:hover{
+  background-color: #222;
+
+}
+
+#i_del {
+  color: #ff5555; /* Default red color */
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+#i_del:hover {
+  color: cyan;
+  text-shadow: 0 0 4px cyan; /* Glowing effect */
+}
+
+
+.try_login{
+  margin-bottom: 250px;
+  margin-top: 0px;
+}
+
+.reg_form{
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+.login_form{
+  margin-bottom: 0px;
+  margin-top: 10px;
+ 
+}
+
+/* Forms */
+form {
+  background: #1a1a1a;
+  padding: 35px;
+  max-width: 400px; /* Reduced form width */
+  margin: 100px auto 30px; /* Prevents overlap with header */
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 90px;
+  margin-top: 60px;
+  
+  align-content: center;
+  
+}
+
+.delete-button i {
+  color: red; /* Adjust color if needed */
+  font-size: 1.2rem; /* Adjust size if needed */
+  background-color: #333;
+}
+
+
+.login-form h2 {
+  margin-left: 125px;
+  font-size: 26px;
+  margin-top:120px;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top: 0px;
+}
+
+
+input, select, textarea {
+  width: 95%;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+  align-items: center;
+}
+
+button {
+  background: #333;
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 103%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #444;
+}
+
+/* Tables */
+table {
+  width: 90%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  background: #1a1a1a; /* Dark gray */
+  color: #e0e0e0;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+
+th {
+  background: #333;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+td {
+  font-size: 16px;
+  border-bottom: 1px solid #444;
+}
+
+tr:hover {
+  background: #222;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-button i {
+  color: red; /* Adjust color if needed */
+  font-size: 1.2rem; /* Adjust size if needed */
+
+}
+
+
+
+/* Profile Page */
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+}
+
+.profile-info {
+  background: #1a1a1a;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  margin-top: 70px;
+}
+
+.profile-info h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.profile .btn {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+  
+  th, td {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .profile-info {
+    width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-left: 20px; /* Less right alignment on smaller screens */
+  }
+
+  form {
+    max-width: 90%; /* Smaller forms on mobile */
+  }
+}
+
+/* Centering the offer help page */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  background: #1a1a1a; /* Dark background for contrast */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Style for the request details */
+.request-info {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Center the image */
+.request-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+/* Center the button */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ensure buttons are centered */
+.btn {
+  display: block;
+  text-align: center;
+  width: 80%;
+  max-width: 200px;
+}
+

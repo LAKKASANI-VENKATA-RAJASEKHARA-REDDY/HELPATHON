@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Help - HELP.com</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{url_for('home')}}" style="cursor: pointer; text-decoration: none; color: inherit;"><h1>HELP.com</h1></a>
+    </header>
+
+    <section class="request-form">
+        <h2>Request Help</h2>
+        
+        <form action="{{ url_for('request_help') }}" method="post" enctype="multipart/form-data">
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="money">Money</option>
+                <option value="food">Food</option>
+                <option value="Temporary Stay">Temporary Stay</option>
+                <option value="Books">Books</option>
+                <option value="other">Other</option>
+            </select>
+        
+            <label for="amount">Amount (if applicable):</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount (optional)">
+        
+            <label for="description">Describe your request:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+            <input type="file" name="file" accept="image/*">
+            <input type="text" name="location" placeholder="Enter your location" required>
+            <input type="text" name="code" placeholder="Set a code" required>
+            <!-- <button type="submit">Upload</button> -->
+            <button type="submit">Submit Request</button>
+        </form>
+        
+    </section>
+
+    
+</body>
+</html>

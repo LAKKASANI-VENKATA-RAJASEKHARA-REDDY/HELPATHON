@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - HELP.com</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+        <nav>
+           <!--<a href="{{ url_for('dashboard') }}">Dashboard</a>--> 
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('request_help') }}">Request Help</a>
+            <a href="{{ url_for('browse_requests') }}">Browse Requests</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+        
+    </header>
+
+    <section class="dashboard-content">
+        <h2>Welcome to HELP.com Dashboard</h2>
+        <p>View help requests or offer assistance.</p>
+
+        <div class="actions" style="justify-items: center;">
+            <a href="{{ url_for('request_help') }}" class="btn">Request Help</a>
+            <a href="{{ url_for('browse_requests') }}" class="btn">Offer Help</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HELP.com | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
+
+

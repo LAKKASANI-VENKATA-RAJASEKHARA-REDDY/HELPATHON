@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Help</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+   
+    <div class="container">
+        <h1 style="margin-left: 0px; margin-bottom: 0px;">Offer Help</h1>
+        <div class="request-info">
+            <p><strong style="margin-right:4px ;">REQUEST ID:</strong> {{ request_details.id }}</p>
+            <p><strong style="margin-right:4px ;">NAME:</strong> {{ request_details.name }}</p>
+            <p><strong style="margin-right:4px ;">MOBILE NUMBER:</strong> {{ request_details.mobile_number }}</p>
+            <p><strong style="margin-right:4px ;">CATEGORY:</strong> {{ request_details.category }}</p>
+            <p><strong style="margin-right:4px ;">AMOUNT:</strong> {{ request_details.amount if request_details.amount else 'Not specified' }}</p>
+            <p><strong style="margin-right:4px ;">DESCRIPTION:</strong> {{ request_details.description }}</p>
+            <p><strong style="margin-right:4px ;">LOCATION:</strong> {{ request_details.location}}</p>
+
+            <!--<p><a href="tel:+91 9449411320">Call Now: +91 9449411320</a></p>-->
+            
+            {% if  (( user_details.help_provided  + 1 ) / (user_details.help_requested + 1 )) < 5 %}
+                <p><strong style="margin-right:4px ;" id="rating">RATING:</strong>{{ ((user_details.help_provided or 0) + 1) / ((user_details.help_requested or 0) + 1) }}</p>
+            {% else %}
+                <p><strong style="margin-right:4px ;" id="rating">RATING:</strong>5</p>
+            {% endif %}
+
+
+            {% if request_details.image_url %}
+                <p style="text-align: center;"><strong >Attached Image:</strong></p>
+                <img src="{{ url_for('static', filename=request_details.image_url.split('static/')[-1]) }}" 
+                     alt="Request Image" class="request-image" style="margin-bottom:0px ;">
+            {% else %}
+                <p><strong>No image attached.</strong></p>
+            {% endif %}
+
+            <p class="important-note" style="text-align: center; margin-bottom: 0px;"><strong>Contact the requester before offering help.</strong></p>
+        </div>
+
+        
+
+        <form action="{{ url_for('verify_code', request_id=request_details.id) }}" method="post">
+
+            <input type="text" name="entered_code" placeholder="Enter code" required>
+            <button type="submit" class="btn" style="margin-top: 0px;">Verify</button>
+        </form>
+        
+        {% if session['verified_request_id'] == request_details.id %}
+            <form action="{{ url_for('confirm_help', request_id=request_details.id) }}" method="post">
+                <button type="submit" class="btn" style="margin-top: 0px;">Help Offered</button>
+            </form>
+        {% else %}
+            <button class="btn" style="margin-top: 0px; cursor:not-allowed;" disabled>Help Offered</button>
+            
+        {% endif %}
+        
+
+
+
+        <a href="{{ url_for('browse_requests') }}" class="btn" style="margin-top: 0px;">Back to Requests</a>
+    </div>
+</body>
+</html>
+
+

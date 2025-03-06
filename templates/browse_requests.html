@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <header style="position: fixed;">
+        <a href="{{ url_for('home') }}" style="cursor: pointer; text-decoration: none; color: inherit;">
+            <h1>HELP.com</h1>
+        </a>
+    </header>
+
+    <h1 style="margin-top: 100px;">Help Requests</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.id }}</td>
+            <td>{{ req.category }}</td>
+            <td>{{ req.amount }}</td>
+            <td>{{ req.description }}</td>
+            <td>
+                {% if req.user_id != user_id %}
+                    <a href="{{ url_for('offer_help', request_id=req.id) }}" class="btn-oh">Offer Help</a>
+                {% else %}
+                    
+                <form action="{{ url_for('delete_request', request_id=req.id) }}" method="POST" class="delete-form">
+                    <button type="submit" class="delete-button">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+                
+                {% endif %}
+            </td>
+            
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
