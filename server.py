@@ -11,10 +11,11 @@ app.secret_key = "Sekhar@26"  # for session management ?
 # MySQL 
 def create_db_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="maglev.proxy.rlwy.net",
         user="root",
-        password="Sekhar@26",
-        database="help_db"
+        password="LtDesPnVOBexjBjwmlMcsmsTfXCbsoiU",
+        database="help_db",
+        port=30133
     )
 
 # Function to check allowed file types
